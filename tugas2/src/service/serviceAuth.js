@@ -1,9 +1,10 @@
 // import bcrypt from "bcryptjs";
+// import bcrypt, { compare } from "bcrypt";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const hashPassword = async (password) => {
-    return await bcrypt.hash(password, 10);;
+    return await bcrypt.hash(password, 10);
 };
 
 const comparePassword = async (password, hash) => {
@@ -18,6 +19,8 @@ const generateToken = (user) => {
     );
 };
 
-export default { 
-     
-    generateToken };
+export { 
+    hashPassword,
+    comparePassword,
+    generateToken 
+};

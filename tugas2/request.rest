@@ -1,0 +1,48 @@
+###
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+    "username": "testing",
+    "email": "testing@example.com",
+    "password": "12345678910"
+}
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "testing@example.com",
+    "password": "12345678910"
+}
+
+###
+GET http://localhost:5000/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZXN0aW5nIiwiaWF0IjoxNzQwODkwMTgyLCJleHAiOjE3NDA4OTM3ODJ9.1iKX4JS5Mgi2EB9L37P7yBbF4VUcKMEfKGCyWjHp_p0
+
+###
+POST http://localhost:5000/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZXN0aW5nIiwiaWF0IjoxNzQwODkwMTgyLCJleHAiOjE3NDA4OTM3ODJ9.1iKX4JS5Mgi2EB9L37P7yBbF4VUcKMEfKGCyWjHp_p0
+
+{
+    "title": "testing notes",
+    "content": "gacor kang"
+}
+
+###
+PUT http://localhost:5000/notes/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZXN0aW5nIiwiaWF0IjoxNzQwODkwMTgyLCJleHAiOjE3NDA4OTM3ODJ9.1iKX4JS5Mgi2EB9L37P7yBbF4VUcKMEfKGCyWjHp_p0
+
+{
+    "title": "testing notes updated",
+    "content": "banjir gacor kang awokwok"
+}
+
+###
+DELETE http://localhost:5000/notes/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZXN0aW5nIiwiaWF0IjoxNzQwODkwMTgyLCJleHAiOjE3NDA4OTM3ODJ9.1iKX4JS5Mgi2EB9L37P7yBbF4VUcKMEfKGCyWjHp_p0

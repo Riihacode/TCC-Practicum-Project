@@ -13,7 +13,7 @@ const errorResponse = (res, message = "Something went wrong", statusCode = 500) 
     });
 };
 
-export default { 
+export { 
     successResponse,
     errorResponse
 };
