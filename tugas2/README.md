@@ -9,19 +9,19 @@ A. Authentication
 
 1. Register Akun (POST)
    
-Endpoint	= /register
+   Endpoint	= /register
 
-Request type	= raw / x-www-form-urlencoded
+   Request type	= raw / x-www-form-urlencoded
 
-Body		= username, email, password
+   Body		= username, email, password
 
 3. Login Akun (POST)
    
-Endpoint	= /login
-
-Request type	= raw / x-www-form-urlencoded
-
-Body		= email, password
+   Endpoint	= /login
+   
+   Request type	= raw / x-www-form-urlencoded
+   
+   Body		= email, password
 
 
 ==============================
@@ -29,42 +29,42 @@ B. Notes
 
 1. Menampilkan semua Notes (GET)
    
-Endpoint	= /notes
-
-Request type	= raw / x-www-form-urlencoded
-
-Authorization 	= yes (with login token)
+   Endpoint	= /notes
+   
+   Request type	= raw / x-www-form-urlencoded
+   
+   Authorization 	= yes (with login token)
 
 
 3. Posting notes (POST)
    
-Endpoint	= /notes
-
-Request type	= raw / x-www-form-urlencoded
-
-Body		= title, content
-
-Authorization 	= yes (with login token)
+   Endpoint	= /notes
+   
+   Request type	= raw / x-www-form-urlencoded
+   
+   Body		= title, content
+   
+   Authorization 	= yes (with login token)
 
 
 5. Update notes (PUT)
 
-Endpoint	= /notes/:id
-
-Request type	= raw / x-www-form-urlencoded
-
-Body		= title, content
-
-Authorization 	= yes (with login token)
+   Endpoint	= /notes/:id
+   
+   Request type	= raw / x-www-form-urlencoded
+   
+   Body		= title, content
+   
+   Authorization 	= yes (with login token)
 
 
 7. Delete notes (DELETE)
 
-Endpoint	= /notes/:id
-
-Request type	= raw / x-www-form-urlencoded
-
-Authorization 	= yes (with login token)
+   Endpoint	= /notes/:id
+   
+   Request type	= raw / x-www-form-urlencoded
+   
+   Authorization 	= yes (with login token)
 
 
 
