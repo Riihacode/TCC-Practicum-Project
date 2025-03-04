@@ -11,7 +11,7 @@ Endpoint	= /register
 Request type	= raw / x-www-form-urlencoded
 Body		= username, email, password
 
-2. Login Akun (POST)
+3. Login Akun (POST)
 Endpoint	= /login
 Request type	= raw / x-www-form-urlencoded
 Body		= email, password
