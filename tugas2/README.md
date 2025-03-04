@@ -1,8 +1,8 @@
 # DOKUMENTASI ENDPOINT
 
-TEMA = PROJECT NOTES (CATATAN)
+TEMA       = PROJECT NOTES (CATATAN)
 
-BASE URL = http://http://localhost:5000/
+BASE URL   = http://localhost:5000/
 
 ==============================
 
