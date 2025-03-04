@@ -5,6 +5,7 @@ TEMA = PROJECT NOTES (CATATAN)
 BASE URL = http://http://localhost:5000/
 
 ==============================
+
 A. Authentication
 
 1. Register Akun (POST)
@@ -25,6 +26,7 @@ A. Authentication
 
 
 ==============================
+
 B. Notes
 
 1. Menampilkan semua Notes (GET)
