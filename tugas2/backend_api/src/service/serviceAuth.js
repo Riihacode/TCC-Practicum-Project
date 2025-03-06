@@ -1,5 +1,3 @@
-// import bcrypt from "bcryptjs";
-// import bcrypt, { compare } from "bcrypt";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 

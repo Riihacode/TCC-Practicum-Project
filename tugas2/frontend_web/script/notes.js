@@ -13,37 +13,6 @@ function fetchNotes() {
 
         let notesContainer = document.getElementById("notesContainer");
         notesContainer.innerHTML = "";
-        
-        /*
-        data.forEach(note => {
-            notesContainer.innerHTML += `
-                <div>
-                    <h3>${note.title}</h3>
-                    <p>${note.content}</p>
-                    <button onclick="deleteNote('${note.id}')">Hapus</button>
-                </div>
-            `;
-        });
-        */
-        
-       /*
-       // Pastikan kita mengambil array yang benar
-       let notes = data.data || data; // Coba ambil `data.data` jika ada
-
-       if (Array.isArray(data)) {  // Pastikan data adalah array
-            data.forEach(note => {
-                notesContainer.innerHTML += `
-                    <div>
-                        <h3>${note.title}</h3>
-                        <p>${note.content}</p>
-                        <button onclick="deleteNote('${note.id}')">Hapus</button>
-                    </div>
-                `;
-            });
-        } else {
-            console.error("Data bukan array:", data);
-        } 
-            */
 
         let notes = data.data;  // Ambil array dari `data.data`
 
@@ -54,6 +23,7 @@ function fetchNotes() {
                         <h3>${note.title}</h3>
                         <p>${note.content}</p>
                         <div class="button-container">
+                            <a href="edit.html?id=${note.id}" class="edit-button">Edit</a>
                             <button class="delete-button" onclick="deleteNote('${note.id}')">Hapus</button>
                         </div>
                     </div>

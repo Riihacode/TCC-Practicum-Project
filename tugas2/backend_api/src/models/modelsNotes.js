@@ -4,7 +4,11 @@ import User from "./modelsUser.js";
 
 const Note = db.define(
     "Note", {
-        id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+        id: { 
+            type: DataTypes.INTEGER, 
+            primaryKey: true, 
+            autoIncrement: true 
+        },
         user_id: DataTypes.INTEGER,
         title: DataTypes.STRING,
         content: DataTypes.TEXT,

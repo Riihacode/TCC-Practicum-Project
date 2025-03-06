@@ -38,15 +38,6 @@ document.getElementById("loginForm")?.addEventListener("submit", function (e) {
         return response.json();
     })
     .then(data => {
-        /*
-        console.log("Response dari server:", data); // Debug: Cek data dari API
-        if (data.token) {
-            localStorage.setItem("token", data.token);
-            window.location.href = "dashboard.html";
-        } else {
-            alert("Login gagal!");
-        }
-            */
         console.log("Response Status:", data.status);
         console.log("Response dari server:", data);
 

@@ -1,6 +1,7 @@
 import express from "express";
 import {
     getAllNotes,
+    getNoteById,
     createNote,
     updateNote,
     deleteNote
@@ -10,6 +11,7 @@ import verifyToken from "../middlewares/middlewaresAuth.js";
 const router = express.Router();
 
 router.get("/notes", verifyToken, getAllNotes);
+router.get("/notes/:id", verifyToken, getNoteById);
 router.post("/notes", verifyToken, createNote);
 router.put("/notes/:id", verifyToken, updateNote);
 router.delete("/notes/:id", verifyToken, deleteNote);

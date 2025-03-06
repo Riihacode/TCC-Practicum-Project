@@ -13,6 +13,21 @@ const getAllNotes = async (req, res) => {
     }
 };
 
+const getNoteById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const note = await Note.findOne({ where: { id } });
+
+        if (!note) {
+            return errorResponse(res, "Note not found", 404);
+        }
+
+        successResponse(res, note, "Note retrieved successfully");
+    } catch (error) {
+        errorResponse(res, "Failed to retrieve note", 500);
+    }
+};
+
 const createNote = async (req, res) => {
     try {
         // const { user_id, title, content } = req.body;
@@ -50,6 +65,7 @@ const deleteNote = async (req, res) => {
 
 export {
     getAllNotes,
+    getNoteById,
     createNote,
     updateNote,
     deleteNote
