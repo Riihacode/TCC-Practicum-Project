@@ -1,12 +1,19 @@
 import { Sequelize } from "sequelize";
 
 const db = new Sequelize(
-    "tcc_practicum_task2",
+    //"tcc_practicum_task2"
+    "prak-tcc-task3-123210038",
     "root",
     "",{
+        /*
         host: "localhost",
         password: "",
         dialect: "mysql",
+        */
+        host: "104.154.27.60",
+        password: "testing_prak-tcc-task3-123210038",
+        dialect: "mysql",
+        logging: console.log,
     }
 );
 

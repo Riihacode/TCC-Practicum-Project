@@ -3,8 +3,8 @@ POST http://localhost:5000/register
 Content-Type: application/json
 
 {
-    "username": "testing",
-    "email": "testing@example.com",
+    "username": "mantap",
+    "email": "mantap@example.com",
     "password": "12345678910"
 }
 
@@ -13,36 +13,41 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "testing@example.com",
+    "email": "mantap@example.com",
     "password": "12345678910"
 }
 
 ###
 GET http://localhost:5000/notes
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZXN0aW5nIiwiaWF0IjoxNzQwODkwMTgyLCJleHAiOjE3NDA4OTM3ODJ9.1iKX4JS5Mgi2EB9L37P7yBbF4VUcKMEfKGCyWjHp_p0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJtYW50YXAiLCJpYXQiOjE3NDE4MTQzNjQsImV4cCI6MTc0MTgxNzk2NH0._VxhQdnc6Iu1lRa8tvvx23Wizh4BS1mwgmWgUy1GrIc
 
 ###
 POST http://localhost:5000/notes
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZXN0aW5nIiwiaWF0IjoxNzQxMDc0MzM0LCJleHAiOjE3NDEwNzc5MzR9.ViGqJV49RN3eyXWG3ePK9ozQpvyPHIbYdlqUqBWVoyY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJtYW50YXAiLCJpYXQiOjE3NDE4MTQzNjQsImV4cCI6MTc0MTgxNzk2NH0._VxhQdnc6Iu1lRa8tvvx23Wizh4BS1mwgmWgUy1GrIc
 
 {
     "title": "testing notes",
-    "content": "gacor kang"
+    "content": "[ORIGINAL] gacor kang"
 }
 
 ###
-PUT http://localhost:5000/notes/1
+PUT http://localhost:5000/notes/17
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZXN0aW5nIiwiaWF0IjoxNzQwODkwMTgyLCJleHAiOjE3NDA4OTM3ODJ9.1iKX4JS5Mgi2EB9L37P7yBbF4VUcKMEfKGCyWjHp_p0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJtYW50YXAiLCJpYXQiOjE3NDE4MTQzNjQsImV4cCI6MTc0MTgxNzk2NH0._VxhQdnc6Iu1lRa8tvvx23Wizh4BS1mwgmWgUy1GrIc
 
 {
     "title": "testing notes updated",
-    "content": "banjir gacor kang awokwok"
+    "content": "[PART-1] testing notes mantap"
 }
 
 ###
-DELETE http://localhost:5000/notes/2
+DELETE http://localhost:5000/notes/17
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZXN0aW5nIiwiaWF0IjoxNzQxMDc0MzM0LCJleHAiOjE3NDEwNzc5MzR9.ViGqJV49RN3eyXWG3ePK9ozQpvyPHIbYdlqUqBWVoyY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJtYW50YXAiLCJpYXQiOjE3NDE4MTQzNjQsImV4cCI6MTc0MTgxNzk2NH0._VxhQdnc6Iu1lRa8tvvx23Wizh4BS1mwgmWgUy1GrIc
+
+###
+GET http://localhost:5000/notes/17
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJtYW50YXAiLCJpYXQiOjE3NDE4MTQzNjQsImV4cCI6MTc0MTgxNzk2NH0._VxhQdnc6Iu1lRa8tvvx23Wizh4BS1mwgmWgUy1GrIc

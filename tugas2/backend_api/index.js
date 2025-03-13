@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import jwt from "jsonwebtoken";
 import routesUser from "./src/routes/routesUser.js";
 import routesNote from "./src/routes/routesNotes.js";
 

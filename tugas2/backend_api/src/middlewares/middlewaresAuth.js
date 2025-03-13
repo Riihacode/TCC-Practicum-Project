@@ -11,8 +11,6 @@ const verifyToken = (req, res, next) => {
 
         // Ambil token setelah bearer
         const token = authHeader.split(" ")[1];
-        // const token = req.headers.authorization?.split(" ")[1];
-        // if (!token) return errorResponse(res, "Access denied", 403);
 
         jwt.verify(token, process.env.JWT_SECRET || "secretKey", (err, decoded) => {
             if (err) return errorResponse(res, "Invalid token", 401);
