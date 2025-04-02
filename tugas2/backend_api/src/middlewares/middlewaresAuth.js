@@ -12,7 +12,8 @@ const verifyToken = (req, res, next) => {
         // Ambil token setelah bearer
         const token = authHeader.split(" ")[1];
 
-        jwt.verify(token, process.env.JWT_SECRET || "secretKey", (err, decoded) => {
+        //jwt.verify(token, process.env.JWT_SECRET || "secretKey", (err, decoded) => {
+        jwt.verify(token, process.env.JWT_SECRET || "defaultSecretKey", (err, decoded) => {
             if (err) return errorResponse(res, "Invalid token", 401);
             
             // Simpan informasi user dari token ke req.user
