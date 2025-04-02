@@ -1,5 +1,5 @@
-//const BASE_URL = "http://localhost:5000";
-const BASE_URL = "https://backend-api-136536138076.us-central1.run.app";
+const BASE_URL = "http://localhost:5000";
+//const BASE_URL = "https://backend-api-136536138076.us-central1.run.app";
 const token = localStorage.getItem("token");
 
 // Ambil parameter ID dari URL
