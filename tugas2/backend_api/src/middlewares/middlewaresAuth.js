@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
 import { errorResponse } from "../utils/utilsResponseHandler.js";
 
-const verifyToken = (req, res, next) => {
+// Udah diganti make implementasi ACCESS_TOKEN_SECRET dan REFRES_TOKEN_SECRET di controllersUser.js dan verifyToken.js
+const verifyAuth = (req, res, next) => {
     try {
         const authHeader = req.headers.authorization;
 
@@ -25,4 +26,4 @@ const verifyToken = (req, res, next) => {
     }  
 };
 
-export default verifyToken;
+export default verifyAuth;

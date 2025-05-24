@@ -9,6 +9,7 @@ import {
     errorResponse, 
     successResponse 
 } from "../utils/utilsResponseHandler.js";
+import jwt from "jsonwebtoken";
 
 // POST
 const registerUser = async(req, res) => {
@@ -39,17 +40,75 @@ const registerUser = async(req, res) => {
     }
 };
 
+// const loginUser = async (req, res) => {
+//     try {
+//         const { email, password } = req.body;
+//         const user = await User.findOne({ 
+//             where: { 
+//                 email: email 
+//             } 
+//         });
+
+//         if (!user || !(await comparePassword(password, user.password))) {
+//             return errorResponse(res, "Invalid credentials", 401);
+//         }
+
+//         const token = generateToken(user);
+//         successResponse(res, { token }, "Login successful");
+//     } catch (error) {
+//         errorResponse(res, "Login failed", 400);
+//     }
+// };
+
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await User.findOne({ where: { email } });
+        const user = await User.findOne({ 
+            where: { 
+                email: email 
+            } 
+        });
 
         if (!user || !(await comparePassword(password, user.password))) {
             return errorResponse(res, "Invalid credentials", 401);
         }
 
-        const token = generateToken(user);
-        successResponse(res, { token }, "Login successful");
+        // const token = generateToken(user);
+
+        const userPlain = user.toJSON();
+        const { password: _, refresh_token: __, ...safeUserData } = userPlain;
+
+        const accessToken = jwt.sign (
+            safeUserData,
+            process.env.ACCESS_TOKEN_SECRET,
+            { expiresIn : "20m"}
+        );
+
+        const refreshToken = jwt.sign(
+            safeUserData,
+            process.env.REFRESH_TOKEN_SECRET,
+            { expiresIn: "1h" }
+        );
+
+        await User.update(
+            { refresh_token: refreshToken },
+            { where: {id: user.id} }
+        );
+
+        res.cookie("refreshToken", refreshToken, {
+            httpOnly: true,
+            sameSite: "Strict",
+            secure: false,
+            maxAge: 24*60*60*1000, // 1 hari
+        });
+
+        // successResponse(res, { token }, "Login successful");
+
+        return successResponse(
+            res,
+            { accessToken, user: safeUserData },
+            "Login berhasil"
+        );
     } catch (error) {
         errorResponse(res, "Login failed", 400);
     }

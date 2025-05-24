@@ -30,14 +30,18 @@ const getNoteById = async (req, res) => {
 
 const createNote = async (req, res) => {
     try {
+        
+        console.log("📥 Body:", req.body);
+        console.log("🔐 req.user:", req.user);
+
         // const { user_id, title, content } = req.body;
         const { title, content } = req.body;
-        const user_id = req.user.id;
+        const user_id = req.users.id;
 
         const note = await Note.create({ user_id, title, content });
         successResponse(res, note, "Note created successfully", 201);
     } catch (error) {
-        errorResponse(res, "Failed to update note");
+        errorResponse(res, "Failed to create note");
     }
 };
 

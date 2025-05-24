@@ -1,7 +1,7 @@
-//const BASE_URL = "http://localhost:5000";
+// const BASE_URL = "http://localhost:5000";
 //const BASE_URL = "https://backend-api-136536138076.us-central1.run.app";
-const BASE_URL = "https://backend-api-prak-tcc-task6-136536138076.us-central1.run.app";
-const token = localStorage.getItem("token");
+// const BASE_URL = "https://backend-api-prak-tcc-task6-136536138076.us-central1.run.app";
+// const token = localStorage.getItem("token");
 
 // Ambil parameter ID dari URL
 const urlParams = new URLSearchParams(window.location.search);
@@ -13,10 +13,11 @@ if (!noteId) {
 }
 
 // Ambil data catatan berdasarkan ID langsung dari API
-fetch(`${BASE_URL}/notes/${noteId}`, {
-    method: "GET",
-    headers: { "Authorization": `Bearer ${token}` }
-})
+// fetch(`${BASE_URL}/notes/${noteId}`, {
+//     method: "GET",
+//     headers: { "Authorization": `Bearer ${token}` }
+// })
+authorizedFetch(`${BASE_URL}/notes/${noteId}`)
 .then(response => response.json())
 .then(responseData => { // Ubah nama variabel agar tidak tertukar
     console.log("Response dari API /notes/{id}:", responseData); // Debugging response API
@@ -52,11 +53,12 @@ function updateNote() {
 
     console.log(`Mengirim update untuk ID: ${id}`); // Debugging
 
-    fetch(`${BASE_URL}/notes/${id}`, {
+    // fetch(`${BASE_URL}/notes/${id}`, {
+    authorizedFetch(`${BASE_URL}/notes/${id}`, {
         method: "PUT",
         headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            "Content-Type": "application/json"
+            // "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify({ title, content }),
     })
@@ -75,4 +77,8 @@ function updateNote() {
         console.error("Error:", error);
         alert("Terjadi kesalahan saat memperbarui catatan!");
     });
+}
+
+function cancelEdit() {
+    window.location.href = "dashboard.html";
 }

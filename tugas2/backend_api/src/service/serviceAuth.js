@@ -9,6 +9,7 @@ const comparePassword = async (password, hash) => {
     return await bcrypt.compare(password, hash);
 };
 
+// Udah ga dipake krn diganti dengan implementasi ACCESS_TOKEN_SECRET dan REFRES_TOKEN_SECRET di controllersUser.js dan verifyToken.js
 const generateToken = (user) => {
     return jwt.sign(
         { id: user.id, username: user.username },

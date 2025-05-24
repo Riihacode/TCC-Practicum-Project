@@ -1,14 +1,15 @@
-const token = localStorage.getItem("token");
-//const BASE_URL = "http://localhost:5000";
+// const token = localStorage.getItem("token");
+// const BASE_URL = "http://localhost:5000";
 //const BASE_URL = "https://backend-api-136536138076.us-central1.run.app";
-const BASE_URL = "https://backend-api-prak-tcc-task6-136536138076.us-central1.run.app";
+// const BASE_URL = "https://backend-api-prak-tcc-task6-136536138076.us-central1.run.app";
 
 // Tampilkan Semua Notes
 function fetchNotes() {
-    fetch(`${BASE_URL}/notes`, {
-        method: "GET",
-        headers: { "Authorization": `Bearer ${token}` },
-    })
+    // fetch(`${BASE_URL}/notes`, {
+    //     method: "GET",
+    //     headers: { "Authorization": `Bearer ${token}` },
+    // })
+    authorizedFetch(`${BASE_URL}/notes`)
     .then(response => response.json())
     .then(data => {
         console.log("Response dari API /notes:", data); // Debug response API
@@ -43,11 +44,12 @@ function addNote() {
     const title = document.getElementById("title").value;
     const content = document.getElementById("content").value;
 
-    fetch(`${BASE_URL}/notes`, {
+    // fetch(`${BASE_URL}/notes`, {
+    authorizedFetch(`${BASE_URL}/notes`, {
         method: "POST",
         headers: { 
-            "Content-Type": "application/json", 
-            "Authorization": `Bearer ${token}`
+            "Content-Type": "application/json"
+            // "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify({ title, content }),
     })
@@ -56,11 +58,14 @@ function addNote() {
 
 // Hapus Notes
 function deleteNote(id) {
-    fetch(`${BASE_URL}/notes/${id}`, {
-        method: "DELETE",
-        headers: { "Authorization": `Bearer ${token}` },
-    })
-    .then(() => fetchNotes());
+    // fetch(`${BASE_URL}/notes/${id}`, {
+    //     method: "DELETE",
+    //     headers: { "Authorization": `Bearer ${token}` },
+    // })
+    // .then(() => fetchNotes());
+    authorizedFetch(`${BASE_URL}/notes/${id}`, {
+        method: "DELETE"
+    }).then(() => fetchNotes());
 }
 
 // Logout

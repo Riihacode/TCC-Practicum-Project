@@ -3,9 +3,11 @@ import cors from "cors";
 import dotenv from "dotenv";
 import routesUser from "./src/routes/routesUser.js";
 import routesNote from "./src/routes/routesNotes.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
+app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -4,7 +4,7 @@ import { db } from "../config/configDatabase.js";
 const { DataTypes } = Sequelize;
 
 const User = db.define(
-    "user", {
+    "users", {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -23,6 +23,10 @@ const User = db.define(
         password: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        refresh_token: {
+            type: DataTypes.TEXT,
+            allowNull: true
         }
     }, {
         tableName: "users",

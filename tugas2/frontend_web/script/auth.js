@@ -1,6 +1,6 @@
-// const BASE_URL = "http://localhost:5000";
+const BASE_URL = "http://localhost:5000";
 //const BASE_URL = "https://backend-api-136536138076.us-central1.run.app";
-const BASE_URL = "https://backend-api-prak-tcc-task6-136536138076.us-central1.run.app";
+// const BASE_URL = "https://backend-api-prak-tcc-task6-136536138076.us-central1.run.app";
 
 // Register
 document.getElementById("registerForm")?.addEventListener("submit", function (e) {
@@ -45,7 +45,9 @@ document.getElementById("loginForm")?.addEventListener("submit", function (e) {
 
         // Periksa apakah token tersedia di dalam `data.data.token`
         if (data.status === "success") {
-            localStorage.setItem("token", data.data.token);
+            // localStorage.setItem("token", data.data.token);
+            localStorage.setItem("accessToken", data.data.accessToken); // ubah jadi accessToken
+            localStorage.setItem("refreshToken", data.data.refreshToken); // tambahkan ini
             alert("Login Berhasil!");
             window.location.href = "dashboard.html"; // Redirect ke halaman notes
         } else {
